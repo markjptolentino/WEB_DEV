@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Validation</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Arial', sans-serif;
+    }
+    .form-container {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+    input {
+      transition: all 0.3s;
+    }
+    input:focus {
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+    .toast {
+      display: none;
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #ff4444;
+      color: white;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <form id="contactForm" class="space-y-4">
+      <div>
+        <label for="name" class="block text-white">Name</label>
+        <input type="text" id="name" class="w-full p-2 rounded" placeholder="Enter your name">
+      </div>
+      <div>
+        <label for="phone" class="block text-white">Phone Number</label>
+        <input type="tel" id="phone" class="w-full p-2 rounded" placeholder="Enter your phone number">
+      </div>
+      <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded transition duration-300">Submit</button>
+    </form>
+    <div id="toast" class="toast">Please fill in all fields!</div>
+  </div>
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const phone = document.getElementById('phone').value;
+      const toast = document.getElementById('toast');
+      if (!name || !phone) {
+        toast.style.display = 'block';
+        setTimeout(() => toast.style.display = 'none', 3000);
+      } else {
+        toast.style.background = '#44ff44';
+        toast.textContent = 'Form submitted successfully!';
+        toast.style.display = 'block';
+        setTimeout(() => toast.style.display = 'none', 3000);
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bookmark Navigation</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    body {
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: white;
+      font-family: 'Arial', sans-serif;
+    }
+    nav {
+      position: sticky;
+      top: 0;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+    }
+    nav a {
+      transition: all 0.3s;
+    }
+    nav a:hover {
+      color: #ff00ff;
+      text-shadow: 0 0 10px #ff00ff;
+    }
+    section {
+      min-height: 100vh;
+      padding: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+  <nav class="p-4">
+    <ul class="flex space-x-6 justify-center">
+      <li><a href="#home" class="text-white text-lg">Home</a></li>
+      <li><a href="#movies" class="text-white text-lg">Movies</a></li>
+      <li><a href="#contact" class="text-white text-lg">Contact</a></li>
+    </ul>
+  </nav>
+  <section id="home">
+    <h1 class="text-4xl font-bold">Home</h1>
+  </section>
+  <section id="movies">
+    <h1 class="text-4xl font-bold">Movies</h1>
+  </section>
+  <section id="contact">
+    <h1 class="text-4xl font-bold">Contact</h1>
+  </section>
+</body>
+</html>

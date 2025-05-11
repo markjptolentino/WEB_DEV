@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Awesome ToDo App</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/todo.css">
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">My ToDo List</h1>
+    <div class="input-container">
+      <input type="text" id="todoInput" placeholder="Add a new task..." aria-label="New task">
+      <button id="addButton" class="add-button">Add</button>
+    </div>
+    <ul id="todoList" class="todo-list"></ul>
+    <footer class="footer">
+      <p>Created by John Doe | May 11, 2025</p>
+      <div class="social-icons">
+        <a href="#" class="text-white hover:text-pink-500">GitHub</a>
+        <a href="#" class="text-white hover:text-pink-500">Twitter</a>
+      </div>
+    </footer>
+  </div>
+  <script src="js/todo.js"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSON Stringify</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .json-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="json-card">
+    <button id="stringifyBtn" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded">Stringify</button>
+    <pre id="output" class="mt-4"></pre>
+  </div>
+  <script>
+    document.getElementById('stringifyBtn').addEventListener('click', () => {
+      const dog = { name: 'Buddy', breed: 'Golden Retriever', age: 3 };
+      const jsonString = JSON.stringify(dog);
+      document.getElementById('output').textContent = jsonString;
+    });
+  </script>
+</body>
+</html>

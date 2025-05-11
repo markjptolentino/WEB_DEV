@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ondblclick Event</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    p {
+      font-size: 1.5rem;
+      color: white;
+      transition: color 0.3s, transform 0.3s;
+    }
+    p.changed {
+      color: #ff00ff;
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+  <p ondblclick="changeColor()">Double-click me!</p>
+  <script>
+    function changeColor() {
+      const p = document.querySelector('p');
+      p.classList.toggle('changed');
+      confetti({ particleCount: 50, spread: 50 });
+    }
+  </script>
+</body>
+</html>

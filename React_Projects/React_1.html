@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>React Timer</title>
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-family: 'Arial', sans-serif;
+    }
+    #container {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 2rem;
+      border-radius: 1rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div id="container"></div>
+  <script>
+    const Timer = React.createClass({
+      getInitialState: function() {
+        return { secondsElapsed: 0 };
+      },
+      tick: function() {
+        this.setState({ secondsElapsed: this.state.secondsElapsed + 1 });
+      },
+      componentDidMount: function() {
+        this.interval = setInterval(this.tick, 1000);
+      },
+      componentWillUnmount: function() {
+        clearInterval(this.interval);
+      },
+      render: function() {
+        return React.createElement(
+          'div',
+          null,
+          'Seconds Elapsed: ',
+          this.state.secondsElapsed
+        );
+      }
+    });
+    ReactDOM.render(React.createElement(Timer), document.getElementById('container'));
+  </script>
+</body>
+</html>

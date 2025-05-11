@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Local Storage</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .storage-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      color: white;
+    }
+    .toast {
+      display: none;
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #44ff44;
+      color: white;
+      padding: 1rem;
+      border-radius: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="storage-card">
+    <input type="text" id="nameInput" class="w-full p-2 rounded" placeholder="Enter your name">
+    <button id="saveBtn" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded mt-4">Save</button>
+    <p id="output" class="mt-4"></p>
+    <div id="toast" class="toast">Name saved!</div>
+  </div>
+  <script>
+    document.getElementById('saveBtn').addEventListener('click', () => {
+      const name = document.getElementById('nameInput').value;
+      if (name) {
+        localStorage.setItem('userName', name);
+        document.getElementById('output').textContent = `Stored: ${localStorage.getItem('userName')}`;
+        const toast = document.getElementById('toast');
+        toast.style.display = 'block';
+        setTimeout(() => toast.style.display = 'none', 2000);
+      }
+    });
+  </script>
+</body>
+</html>

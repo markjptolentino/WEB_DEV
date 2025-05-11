@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSON Parse</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(135deg, #48c6ef, #6f86d6);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .json-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="json-card">
+    <button id="parseBtn" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded">Parse</button>
+    <ul id="output" class="mt-4"></ul>
+  </div>
+  <script>
+    document.getElementById('parseBtn').addEventListener('click', () => {
+      const jsonString = '{"name":"Buddy","breed":"Golden Retriever","age":3}';
+      const dog = JSON.parse(jsonString);
+      const output = document.getElementById('output');
+      output.innerHTML = `
+        <li>Name: ${dog.name}</li>
+        <li>Breed: ${dog.breed}</li>
+        <li>Age: ${dog.age}</li>
+      `;
+    });
+  </script>
+</body>
+</html>

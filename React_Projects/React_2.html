@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>React Button Counter</title>
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+    }
+    #like_button_container {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 2rem;
+      border-radius: 1rem;
+    }
+    button {
+      background: #ff00ff;
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 0.5rem;
+      transition: all 0.3s;
+    }
+    button:hover {
+      background: #ff69b4;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <div id="like_button_container"></div>
+  <script>
+    'use strict';
+    class LikeButton extends React.Component {
+      constructor(props) {
+        super(props);
+        this.state = { liked: false, count: 0 };
+      }
+      render() {
+        if (this.state.liked) {
+          return 'You liked this ' + this.state.count + ' times';
+        }
+        return React.createElement(
+          'button',
+          { onClick: () => this.setState({ liked: true, count: this.state.count + 1 }) },
+          'Like'
+        );
+      }
+    }
+    const domContainer = document.querySelector('#like_button_container');
+    ReactDOM.render(React.createElement(LikeButton), domContainer);
+  </script>
+</body>
+</html>

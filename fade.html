@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fade In Effect</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-family: 'Arial', sans-serif;
+    }
+    .fade-in {
+      opacity: 0;
+      transform: scale(0.95);
+      animation: fadeIn 1s ease-in forwards;
+    }
+    .fade-in:nth-child(1) { animation-delay: 0.2s; }
+    .fade-in:nth-child(2) { animation-delay: 0.4s; }
+    .fade-in:nth-child(3) { animation-delay: 0.6s; }
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="text-center space-y-6">
+    <h1 class="text-4xl font-bold fade-in">Welcome to GatusSecGG Cinemas</h1>
+    <p class="text-lg fade-in">Experience movies like never before!</p>
+    <button class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded fade-in transition duration-300">Book Now</button>
+  </div>
+</body>
+</html>
